@@ -1145,11 +1145,11 @@ button:disabled,
 }
 
 .main{
-    left: 5em;
+    left: auto;
     bottom: 0;
     position: fixed;
     z-index: 10;
-    height: 40em;
+    height: 35em;
 }
 
 /* Header */
@@ -1281,21 +1281,21 @@ button:disabled,
 @media screen and (max-width: 1680px) {
     #footer {
         bottom: 3.5em;
-        left: 3.5em;
+        left: auto;
     }
 }
 
 @media screen and (max-width: 736px) {
     #footer {
         bottom: 2em;
-        left: 2em;
+        left: auto;
     }
 }
 
 @media screen and (max-width: 360px) {
     #footer {
         bottom: 1.25em;
-        left: 1.25em;
+        left: auto;
     }
 }
 

@@ -12,6 +12,7 @@ export default defineConfig({
     },
   },
   server:{
+    host: '192.168.50.91',
     port:80,
     proxy:{
       "/user-api": {
