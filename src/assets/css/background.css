@@ -34,7 +34,6 @@
 #bg div.visible {
     -moz-animation: bg 45s linear infinite;
     -webkit-animation: bg 45s linear infinite;
-    -ms-animation: bg 45s linear infinite;
     animation: bg 45s linear infinite;
     opacity: 1;
     visibility: visible;
@@ -49,7 +48,6 @@
     #bg div.visible {
         -moz-animation: bg 29.25s linear infinite;
         -webkit-animation: bg 29.25s linear infinite;
-        -ms-animation: bg 29.25s linear infinite;
         animation: bg 29.25s linear infinite;
     }
 }
@@ -58,7 +56,6 @@
     #bg div.visible {
         -moz-animation: bg 18s linear infinite;
         -webkit-animation: bg 18s linear infinite;
-        -ms-animation: bg 18s linear infinite;
         animation: bg 18s linear infinite;
     }
 }
@@ -66,25 +63,16 @@
 #bg div:only-child {
     -moz-animation-direction: alternate !important;
     -webkit-animation-direction: alternate !important;
-    -ms-animation-direction: alternate !important;
     animation-direction: alternate !important;
-}
-
-body.is-preload #bg {
-    opacity: 0;
 }
 
 @-moz-keyframes bg {
     0% {
-        -moz-transform: translateX(0);
-        -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
         transform: translateX(0);
     }
 
     100% {
-        -moz-transform: translateX(-25%);
-        -webkit-transform: translateX(-25%);
         -ms-transform: translateX(-25%);
         transform: translateX(-25%);
     }
@@ -92,15 +80,11 @@ body.is-preload #bg {
 
 @-webkit-keyframes bg {
     0% {
-        -moz-transform: translateX(0);
-        -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
         transform: translateX(0);
     }
 
     100% {
-        -moz-transform: translateX(-25%);
-        -webkit-transform: translateX(-25%);
         -ms-transform: translateX(-25%);
         transform: translateX(-25%);
     }
@@ -108,15 +92,11 @@ body.is-preload #bg {
 
 @-ms-keyframes bg {
     0% {
-        -moz-transform: translateX(0);
-        -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
         transform: translateX(0);
     }
 
     100% {
-        -moz-transform: translateX(-25%);
-        -webkit-transform: translateX(-25%);
         -ms-transform: translateX(-25%);
         transform: translateX(-25%);
     }
@@ -124,15 +104,11 @@ body.is-preload #bg {
 
 @keyframes bg {
     0% {
-        -moz-transform: translateX(0);
-        -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
         transform: translateX(0);
     }
 
     100% {
-        -moz-transform: translateX(-25%);
-        -webkit-transform: translateX(-25%);
         -ms-transform: translateX(-25%);
         transform: translateX(-25%);
     }

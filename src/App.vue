@@ -2,23 +2,7 @@
   <router-view/>
 </template>
 
-<script>
-import {slideshowBackground} from "./assets/js/slideshowBackground";
-import {onMounted} from "vue";
-
-export default {
-  setup() {
-    onMounted(() => {
-      slideshowBackground()
-    })
-  }
-}
-
-</script>
-
 <style>
-@import "assets/css/background.css";
-
 html {
   width: 100%;
   height: 100%;
@@ -44,7 +28,6 @@ body {
   z-index: 100;
   background-color: rgba(0, 0, 0, 0);
 }
-
 </style>
 
 

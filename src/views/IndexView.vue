@@ -17,11 +17,14 @@
 <!--#gitignoreline_end-->
     </footer>
   </div>
+  <div id="bg"></div>
 </template>
 
 <script>
-import {ref} from "vue";
+
+import {onMounted, ref} from "vue";
 import axios from 'axios'
+import {slideshowBackground} from "../assets/js/slideshowBackground";
 
 export default {
 	name: "",
@@ -47,6 +50,9 @@ export default {
       })
     }
 
+    onMounted(() => {
+      slideshowBackground()
+    })
 
 		return {
 			signin,
@@ -59,5 +65,8 @@ export default {
 </script>
 
 <style scoped>
-  @import "../assets/css/index.css";
+@import "../assets/css/index.css";
+</style>
+<style>
+@import "../assets/css/background.css";
 </style>

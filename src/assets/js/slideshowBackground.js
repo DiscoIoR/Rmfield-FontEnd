@@ -9,12 +9,9 @@ export function slideshowBackground(){
 		delay: 6000
 	};
 
-	let pos = 0, lastPos = 0,
-		$wrapper, $bgs = [], $bg,
-		k, v;
+	let pos = 0, lastPos = 0, $wrapper, $bgs = [], $bg, k;
 
 	$wrapper = document.querySelector('#bg');
-
 
 	for (k in settings.images) {
 		$bg = document.createElement('div');
@@ -29,7 +26,6 @@ export function slideshowBackground(){
 	// Main loop.
 	$bgs[pos].classList.add('visible');
 	$bgs[pos].classList.add('top');
-
 
 	window.setInterval(function () {
 
