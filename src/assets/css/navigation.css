@@ -1,0 +1,35 @@
+.navigation{
+    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: row;
+}
+
+.last-block{
+    width: 2em;
+    height: 100%;
+    border-right: rgba(255,255,255,0.3) solid 0.05em;
+}
+
+.next-block{
+    width: 12em;
+    height: 5em;
+}
+
+.route-block{
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.route-block:hover{
+    background-color: rgba(100,160,190,0.8);
+    transition: 0.4s;
+}
+
+.route-text{
+    font-family: "Roboto", sans-serif;
+    color: rgba(255,255,255,0.95);
+    font-size: 1.3em;
+}
