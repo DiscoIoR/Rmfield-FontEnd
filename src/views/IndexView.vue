@@ -7,8 +7,8 @@
     </header>
 
     <form id="signin-form" >
-      <input type="text" id="username" v-model="username" placeholder="Username"/>
-      <input type="password" id="password" v-model="password" placeholder="Password"/>
+      <input type="text" id="username" v-model="username" placeholder="username"/>
+      <input type="password" id="password" v-model="password" placeholder="password"/>
       <button type="button" @click="signin">Sign In</button>
     </form>
 
@@ -17,14 +17,10 @@
 <!--#gitignoreline_end-->
     </footer>
   </div>
-
-	<div id="bg"></div>
 </template>
 
 <script>
-import "../assets/css/index.css"
-import {onMounted, ref} from "vue";
-import {slideshowBackground} from "../assets/js/SlideshowBackground";
+import {ref} from "vue";
 import axios from 'axios'
 
 export default {
@@ -52,10 +48,6 @@ export default {
     }
 
 
-    onMounted(()=>{
-      slideshowBackground()
-    })
-
 		return {
 			signin,
       username,
@@ -64,7 +56,8 @@ export default {
 	}
 }
 
-
 </script>
 
-
+<style scoped>
+  @import "../assets/css/index.css";
+</style>
