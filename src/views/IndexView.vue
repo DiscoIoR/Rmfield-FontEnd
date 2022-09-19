@@ -6,10 +6,10 @@
         Maintained by <a href="https://github.com/DiscoIoR">DiscoloR</a>.</p>
     </header>
 
-    <form id="signup-form" method="post" action="#">
-      <input type="text" name="email" id="username" placeholder="Username"/>
-      <input type="password" name="email" id="password" placeholder="Password"/>
-      <button type="button">Sign Up</button>
+    <form id="signin-form" >
+      <input type="text" id="username" v-model="username" placeholder="Username"/>
+      <input type="password" id="password" v-model="password" placeholder="Password"/>
+      <button type="button" @click="signin">Sign In</button>
     </form>
 
     <footer id="footer">
@@ -23,13 +23,33 @@
 
 <script>
 import "../assets/css/index.css"
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 import {slideshowBackground} from "../assets/js/SlideshowBackground";
+import axios from 'axios'
 
 export default {
 	name: "",
 	setup() {
 
+    let username = ref()
+    let password = ref()
+    async function signin(){
+      await axios({
+        url: '/user-api/user/auth/signin',
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: JSON.stringify({
+          username: username.value,
+          password: password.value
+        })
+      }).then(res=>{
+        if(res.status===200 && res.data.code===0){
+          localStorage.setItem('token', res.data.data.token)
+        }
+      })
+    }
 
 
     onMounted(()=>{
@@ -37,10 +57,13 @@ export default {
     })
 
 		return {
-			
+			signin,
+      username,
+      password
 		}
 	}
 }
+
 
 </script>
 

@@ -1,10 +1,10 @@
 export function slideshowBackground(){
 	let settings = {
 		images: {
-			'src/assets/images/bg01.jpg': 'left 40%',
-			'src/assets/images/bg02.jpg': 'left 40%',
-			'src/assets/images/bg03.jpg': 'left 40%',
-			'src/assets/images/bg04.jpg': 'left 20%'
+			'src/assets/images/bg01.jpg': 'center 40%',
+			'src/assets/images/bg02.jpg': 'center 40%',
+			'src/assets/images/bg03.jpg': 'center 40%',
+			'src/assets/images/bg04.jpg': 'center 20%'
 		},
 		delay: 6000
 	};
@@ -25,7 +25,6 @@ export function slideshowBackground(){
 		$wrapper.appendChild($bg);
 		$bgs.push($bg);
 	}
-	console.log($wrapper)
 
 	// Main loop.
 	$bgs[pos].classList.add('visible');
