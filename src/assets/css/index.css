@@ -7,12 +7,6 @@
     margin-left: 2em;
 }
 
-#signin-form{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
 header{
     height: 80%;
     display: flex;
@@ -20,23 +14,17 @@ header{
     justify-content: flex-end;
 }
 
-header a{
-    color: rgba(0,0,0,1);
-    text-decoration: none;
-    transition: 0.2s;
-}
-
-header a:hover{
-    color: rgba(53, 169, 255, 1);
-    text-decoration: none;
-
-}
-
 form{
-    height: 8.5em;
+    height: 13em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media screen and (max-height: 800px) {
+    form{
+        height: 10em;
+    }
 }
 
 footer{
@@ -48,37 +36,241 @@ footer{
 }
 
 footer a{
-    color: rgba(0,0,0,0.6);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Roboto", sans-serif;
     font-size: 12px;
     text-decoration: none;
+    text-shadow: rgba(0,0,0,0.1) 0.01em 0.01em;
 }
 
-input{
-    border: rgba(53, 169, 255, 0.7) solid 2px;
-    background-color: rgba(255,255,255,0.25);
-    width: 12em;
-    height: 2em;
-    padding: 0 0.3em 0 0.3em;
-    border-radius: 0.3em;
-    font-weight: lighter;
-    font-size: 16px;
-    color: rgb(90, 205, 255);
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
 }
+
+input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input,
+button {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "Roboto", sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.65em;
+}
+
+@media screen and (max-width: 1680px) {
+    input {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    input {
+        font-size: 11pt;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    input {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    input {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    input {
+        font-size: 12pt;
+    }
+}
+
+h1 {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    text-shadow: rgba(0,0,0,0.1) 0.03em 0.03em;
+    margin: 0 0 1em 0;
+    font-size: 2.5em;
+    line-height: 1.25em;
+
+}
+
+header a, header p {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    text-shadow: rgba(0,0,0,0.1) 0.03em 0.03em;
+    position: relative;
+    margin: 0 0 1.5em 0;
+}
+
+@media screen and (max-width: 980px) {
+    header br {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    header br {
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header br {
+        display: none;
+    }
+}
+
+@-moz-keyframes focus {
+    0% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -ms-transform: scale(1.025);
+        transform: scale(1.025);
+    }
+
+    100% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes focus {
+    0% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -ms-transform: scale(1.025);
+        transform: scale(1.025);
+    }
+
+    100% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes focus {
+    0% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -ms-transform: scale(1.025);
+        transform: scale(1.025);
+    }
+
+    100% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -moz-transition: border-color 0.2s ease, background-color 0.2s ease;
+    -webkit-transition: border-color 0.2s ease, background-color 0.2s ease;
+    -ms-transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    background-color: transparent;
+    border-radius: 6px;
+    border: solid 2px rgba(255, 255, 255, 0.35);
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+}
+
 input:focus{
-    border: rgb(89, 205, 255) solid 2px;
-    outline: none;
+    -moz-animation: focus 0.1s;
+    -webkit-animation: focus 0.1s;
+    animation: focus 0.1s;
+    background-color: rgba(255, 255, 255, 0.125);
+    border-color: #1cb495;
 }
 
-button{
-    background-color: rgba(53, 170, 255);
-    border: rgba(53, 170, 255) solid 2px;
-    border-radius: 0.3em;
-    width: 5em;
-    height: 2em;
-    font-weight: lighter;
-    font-size: 15px;
+
+input {
+    height: 2.75em;
 }
-button:active{
-    background-color: rgb(50, 155, 255);
-    border: rgba(50, 155, 255) solid 2px;
+
+
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1.0;
 }
+
+:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1.0;
+}
+
+::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1.0;
+}
+
+:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1.0;
+}
+
+button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    -webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    -ms-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    background-color: #1cb495;
+    border-radius: 6px;
+    border: 0;
+    color: #ffffff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    height: 2.75em;
+    line-height: 2.75em;
+    padding: 0 1.125em;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 6em;
+}
+
+button:active {
+    background-color: #199e83;
+}
+
+@media screen and (max-width: 480px) {
+    button {
+        padding: 0;
+    }
+}
+
+
+
