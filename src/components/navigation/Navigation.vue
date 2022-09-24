@@ -5,11 +5,11 @@
     </div>
     <div class="next">
       <template v-for="(value,key) in nLog[nLog.length-1]" :key="key">
-        <div class="next-block route-block route-text" @click="doRoute(value)" v-if="getRouteText(key, value)==='string'">
+        <div class="next-block route-block route-text" @click="doRoute(value)" v-if="getRouteText(key, value)==='string'" v-show="key!=='__displayTag__'">
           {{ key }}
         </div>
         <div class="next-block route-block route-text" @click="nextN(value)" v-else>
-          {{ key }}
+          {{ value.__displayTag__===undefined? key:value.__displayTag__ }}
         </div>
       </template>
     </div>
@@ -24,9 +24,7 @@ import {ref} from "vue";
 export default {
   name: "Navigation",
   setup() {
-    let abcd = {xxx:"/ffff"}
-    let Toolbox = {TimestampTool : "/tstool", HttpTool: "/httptool", abcd}
-    let rootN = {Arknights: "/ark", Toolbox}
+    let rootN = {Arknights: "/arknights"}
     let nLog = ref([rootN])
 
     function getRouteText(key, value) {
