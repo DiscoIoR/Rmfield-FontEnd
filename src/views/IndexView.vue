@@ -47,6 +47,7 @@ export default {
       }).then(res=>{
         if(res.status===200 && res.data.code===0){
           localStorage.setItem('token', res.data.data.token)
+          localStorage.setItem('username', res.data.data.username)
           router.push('/home')
         }
       })
