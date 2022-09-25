@@ -1,16 +1,17 @@
 <template>
   <div class="back">
+    <NavigationBar/>
     <router-view/>
   </div>
 </template>
 
 <script>
-
+import NavigationBar from "../components/NavigationBar.vue";
 
 export default {
   name: "HomeView",
-  setup() {
-
+  components: {
+    NavigationBar
   }
 }
 </script>
