@@ -14,6 +14,7 @@
 
 <script>
 import router from "../router";
+import axios from "axios";
 
 export default {
   name: "NavigationBar.vue",
@@ -21,9 +22,22 @@ export default {
     let token = localStorage.getItem('token')
     let username = localStorage.getItem('username')
     function signout(){
-      // TODO 发送登出请求
-
-      router.push('/')
+      axios({
+        url: '/user-api/user/auth/signout',
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'token': token
+        },
+        data: JSON.stringify({
+          'token': token
+        })
+      }).then(res=>{
+        if (res.data.code===0){
+          localStorage.clear()
+          router.push('/')
+        }
+      })
     }
 
     return{
