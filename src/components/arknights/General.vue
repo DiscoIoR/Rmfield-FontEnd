@@ -16,8 +16,10 @@
       </div>
     </div>
     <div>
-      <input placeholder="粘贴内容到此处"><br>
-      <button type="button">更新</button>
+      <input placeholder="粘贴内容到此处" v-model="akTokenStr"><br>
+      <div id="do-update">
+        <button type="button" @click="updateAkData">更新</button>
+        <span id="update-status">{{ updateStatus }}</span></div>
     </div>
   </div>
   <div id="gachaGeneral" class="info-block"></div>
@@ -55,7 +57,7 @@ export default {
         amount.value = (result.amount/100).toFixed(2)
         lastUpdate.value = ts2Date(result.lastUpdateTs)
         charsCount = result.charsCount
-        result.gachaByMonthList.forEach(e=>{
+        result.gachaByPoolList.forEach(e=>{
           gachaPoolNameList.push(e.pool)
           gachaPoolValList.push(e.count)
         })
@@ -64,6 +66,43 @@ export default {
           gachaMonthValList.push(e.count)
         })
       })
+    }
+
+    let akTokenStr = ref()
+    let updateStatus = ref('')
+    function updateAkData(){
+
+      updateStatus.value = '更新中...'
+
+      let akToken
+      if (akTokenStr.value[0]==='{'){
+        akToken = JSON.parse(akTokenStr.value).data.content
+      }else if (akTokenStr.value.substring(0,9)==='\"content\"'){
+        akToken = JSON.parse('{'+akTokenStr.value+'}').content
+      }else if (akTokenStr.value[0]==='\"' && akTokenStr.value[akTokenStr.value.length-1]==='\"'){
+        akToken = akTokenStr.value.substring(1, akTokenStr.value.length-1)
+      }else {
+        akToken = akTokenStr.value
+      }
+      console.log(akToken)
+      axios({
+        url: '/user-api/ak',
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'token': token
+        },
+        data: JSON.stringify({
+          'token': akToken
+        })
+      }).then(res=>{
+        console.log(res.data)
+        if (res.data.code===0){
+          updateStatus.value = '数据已更新'
+          getGeneralData()
+        }
+      })
+
     }
 
     let gachaGeneral;
@@ -138,7 +177,10 @@ export default {
       diamondEarning,
       diamondCost,
       amount,
-      lastUpdate
+      lastUpdate,
+      akTokenStr,
+      updateAkData,
+      updateStatus
     }
   }
 }
@@ -199,6 +241,17 @@ export default {
 
 .info-block button:active {
   background-color: rgba(255, 255, 255, 1);
+}
+
+#do-update{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#update-status{
+  margin-right: 2em;
+  color: rgba(50,50,50,0.5);
 }
 
 a {
