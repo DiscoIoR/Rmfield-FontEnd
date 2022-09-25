@@ -67,8 +67,8 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/index.css";
+@import "../assets/css/index/index.css";
 </style>
 <style>
-@import "../assets/css/background.css";
+@import "../assets/css/index/background.css";
 </style>
