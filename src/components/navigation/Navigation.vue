@@ -24,7 +24,7 @@ import {ref} from "vue";
 export default {
   name: "Navigation",
   setup() {
-    let rootN = {Arknights: "/arknights"}
+    let rootN = {Arknights: "/arknights/general"}
     let nLog = ref([rootN])
 
     function getRouteText(key, value) {

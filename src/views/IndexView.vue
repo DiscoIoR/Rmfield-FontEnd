@@ -25,6 +25,7 @@
 import {onMounted, ref} from "vue";
 import axios from 'axios'
 import {slideshowBackground} from "../assets/js/slideshowBackground";
+import router from "../router";
 
 export default {
 	name: "",
@@ -46,6 +47,7 @@ export default {
       }).then(res=>{
         if(res.status===200 && res.data.code===0){
           localStorage.setItem('token', res.data.data.token)
+          router.push('/home')
         }
       })
     }
