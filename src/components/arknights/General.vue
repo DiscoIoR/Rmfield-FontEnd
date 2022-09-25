@@ -29,6 +29,7 @@
 import {onMounted, ref} from "vue";
 import {setGachaByMonth, setGachaByPool, setGachaGeneral} from "../../assets/js/akEchartsOption";
 import axios from "axios";
+import {ts2Date} from "../../assets/js/timestampUtil";
 
 export default {
   name: "General",
@@ -52,7 +53,7 @@ export default {
         diamondEarning.value = result.diamondSum.earning
         diamondCost.value = -result.diamondSum.cost
         amount.value = (result.amount/100).toFixed(2)
-        lastUpdate.value = result.lastUpdateTs
+        lastUpdate.value = ts2Date(result.lastUpdateTs)
         charsCount = result.charsCount
         result.gachaByMonthList.forEach(e=>{
           gachaPoolNameList.push(e.pool)
