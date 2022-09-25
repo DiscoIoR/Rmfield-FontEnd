@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import IndexView from "../views/IndexView.vue";
 import HomeView from "../views/HomeView.vue";
-import Navigation from "../components/navigation/Navigation.vue";
+import Navigation from "../components/home/Navigation.vue";
 import ArknightsView from "../views/ArknightsView.vue";
 import General from "../components/arknights/General.vue";
 
