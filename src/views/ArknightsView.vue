@@ -1,5 +1,6 @@
 <template>
   <div class="back">
+    <NavigationBar/>
     <div class="include mid-layer">
       <router-view/>
     </div>
@@ -13,8 +14,13 @@
 </template>
 
 <script>
+import NavigationBar from "../components/NavigationBar.vue";
+
 export default {
-  name: "ArknightsView"
+  name: "ArknightsView",
+  components: {
+    NavigationBar
+  }
 }
 </script>
 
