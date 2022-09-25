@@ -1,22 +1,22 @@
 <template>
   <div class="info-block">
-    <div>Dr.{{ akNickName }}</div>
-    <div>uid:{{ akUid }}</div>
-    <div>源石收入:{{ diamondEarning }}</div>
-    <div>源石支出:{{ diamondCost }}</div>
-    <div>充值总额:{{ amount }}</div>
-    <div>数据更新时间:{{ lastUpdate }}</div>
+    <div><span class="ak-user-info-name">Dr.</span><span class="ak-user-info-val">{{ akNickName }}</span></div>
+    <div><span class="ak-user-info-name">uid:</span><span class="ak-user-info-val">{{ akUid }}</span></div>
+    <div><span class="ak-user-info-name">源石收入: </span><span class="ak-user-info-val">{{ diamondEarning }}</span></div>
+    <div><span class="ak-user-info-name">源石支出: </span><span class="ak-user-info-val">{{ diamondCost }}</span></div>
+    <div><span class="ak-user-info-name">充值总额: </span><span class="ak-user-info-val">{{ amount }}</span></div>
+    <div><span class="ak-user-info-name">数据更新时间: </span><span class="ak-user-info-val">{{ lastUpdate }}</span></div>
   </div>
   <div class="info-block">
     <div>
       <div>
-        Step1 <a href="https://ak.hypergryph.com/" target="_blank">官网</a>登录<br>
-        Setp2 <a href="https://web-api.hypergryph.com/account/info/hg" target="_blank">获取token</a><br>
-        复制字段token:"xxxx"引号中的部分
+        Step1, <a href="https://ak.hypergryph.com/" target="_blank">官网</a>登录<br>
+        Setp2, <a href="https://web-api.hypergryph.com/account/info/hg" target="_blank">获取token</a><br>
+        复制全部文本或content
       </div>
     </div>
     <div>
-      <input placeholder="粘贴token到此处"><br>
+      <input placeholder="粘贴内容到此处"><br>
       <button type="button">更新</button>
     </div>
   </div>
@@ -146,7 +146,8 @@ export default {
 
 <style scoped>
 .info-block {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(3px);
   padding: 0.8em;
   margin: 0.6em;
   width: 17em;
@@ -157,9 +158,18 @@ export default {
   font-family: "Microsoft YaHei UI", sans-serif;
 }
 
+.ak-user-info-name{
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.ak-user-info-val{
+  font-style: italic;
+}
+
 .info-block input {
-  width: 18em;
-  height: 1.5em;
+  width: 19em;
+  height: 1.8em;
   border: rgba(0, 0, 0, 0);
   border-radius: 3px;
   margin-bottom: 0.5em;
@@ -175,7 +185,7 @@ export default {
 
 .info-block button {
   width: 5em;
-  height: 1.8em;
+  height: 2.1em;
   border: rgba(0, 0, 0, 0);
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.6);
@@ -193,12 +203,12 @@ export default {
 
 a {
   text-decoration: none;
-  color: rgba(50, 100, 255, 1);
+  color: rgb(0, 150, 200);
   transition: 0.2s;
 }
 
 a:hover {
-  color: rgba(80, 130, 255, 1);
+  color: rgba(80, 180, 255, 1);
   transition: 0.2s;
 }
 </style>
