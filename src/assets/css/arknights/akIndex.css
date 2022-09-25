@@ -1,0 +1,80 @@
+.back{
+    height: 100%;
+    width: 100%;
+    background-image: url("../../images/arknights/bg01.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.mid-layer{
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+    width: 59.4em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+}
+.include{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    max-height: 75%;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.ak-navigation{
+    height: 3em;
+    padding-bottom: 0.4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ak-route-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    width: 25%;
+    margin-bottom: 0.6em;
+    background-color: rgba(255,255,255,0.6);
+    backdrop-filter: blur(3px);
+    color: rgba(0,0,0,0.9);
+    /*border-radius: 5px;*/
+    text-decoration: none;
+    transition: 0.2s;
+}
+.ak-route-button:hover{
+    background-color: rgba(255,255,255,1);
+    color: rgba(0,0,0,1);
+    transition: 0.2s;
+}
+.ak-navigation .left-button{
+    margin-left: 0.6em;
+}
+.ak-navigation .right-button{
+    margin-right: 0.6em;
+}
+@media (max-width: 960px){
+    .mid-layer{
+        width: 39.6em;
+    }
+}
+@media (max-width: 650px){
+    .mid-layer{
+        width: 19.8em;
+    }
+}
+*::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+*::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.5);
+}
