@@ -57,10 +57,14 @@ export default {
         amount.value = (result.amount/100).toFixed(2)
         lastUpdate.value = ts2Date(result.lastUpdateTs)
         charsCount = result.charsCount
+        gachaPoolNameList = []
+        gachaPoolValList = []
         result.gachaByPoolList.forEach(e=>{
           gachaPoolNameList.push(e.pool)
           gachaPoolValList.push(e.count)
         })
+        gachaMonthNameList = []
+        gachaMonthValList = []
         result.gachaByMonthList.forEach(e=>{
           gachaMonthNameList.push(e.month)
           gachaMonthValList.push(e.count)
@@ -99,7 +103,7 @@ export default {
         console.log(res.data)
         if (res.data.code===0){
           updateStatus.value = '数据已更新'
-          getGeneralData()
+          setDiplayData()
         }
       })
 

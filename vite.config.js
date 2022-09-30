@@ -16,12 +16,12 @@ export default defineConfig({
     port:80,
     proxy:{
       "/user-api": {
-        target: "http://127.0.0.1:10492",
+        target: "http://127.0.0.1:2887",
         changeOrigin: true,
         ws:true
       },
       "/admin-api": {
-        target: "http://127.0.0.1:10492",
+        target: "http://127.0.0.1:2887",
         changeOrigin: true,
         ws:true
       }
