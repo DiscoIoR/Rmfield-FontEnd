@@ -1,13 +1,4 @@
-export function slideshowBackground(){
-	let settings = {
-		images: {
-			'src/assets/images/index/bg01.jpg': 'center 40%',
-			'src/assets/images/index/bg02.jpg': 'center 40%',
-			'src/assets/images/index/bg03.jpg': 'center 40%',
-			'src/assets/images/index/bg04.jpg': 'center 20%'
-		},
-		delay: 6000
-	};
+export function slideshowBackground(settings){
 
 	let pos = 0, lastPos = 0, $wrapper, $bgs = [], $bg, k;
 

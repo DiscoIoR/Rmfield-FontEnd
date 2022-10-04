@@ -53,8 +53,18 @@ export default {
       })
     }
 
+
+
     onMounted(() => {
-      slideshowBackground()
+      slideshowBackground({
+        images: {
+          [new URL('../assets/images/index/bg01.jpg', import.meta.url)]: 'center 40%',
+          [new URL('../assets/images/index/bg02.jpg', import.meta.url)]: 'center 40%',
+          [new URL('../assets/images/index/bg03.jpg', import.meta.url)]: 'center 40%',
+          [new URL('../assets/images/index/bg04.jpg', import.meta.url)]: 'center 20%'
+        },
+        delay: 6000
+      })
     })
 
 		return {
