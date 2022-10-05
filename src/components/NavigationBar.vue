@@ -1,12 +1,15 @@
 <template>
 <div id="navigation-bar">
+  <div class="home">
+    <button @click="home" v-if="showHomeButton()">Home</button>
+  </div>
   <div class="user-status-ctrl">
     <div class="username">
       {{ username }}
     </div>
     <div class="division">|</div>
     <div>
-      <button class="signout-button" @click="signout">sign out</button>
+      <button @click="signout">Sign Out</button>
     </div>
   </div>
 </div>
@@ -19,6 +22,14 @@ import axios from "axios";
 export default {
   name: "NavigationBar.vue",
   setup(){
+
+    function showHomeButton(){
+      return router.currentRoute.value.fullPath !== '/home';
+    }
+    function home(){
+      router.push('/home')
+    }
+
     let token = localStorage.getItem('token')
     let username = localStorage.getItem('username')
     function signout(){
@@ -41,6 +52,8 @@ export default {
     }
 
     return{
+      showHomeButton,
+      home,
       signout,
       username
     }
@@ -59,8 +72,12 @@ export default {
   backdrop-filter: blur(15px);
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+}
+.home{
+  width: 5em;
+  margin-left: 2em;
 }
 .user-status-ctrl{
   width: 15em;
@@ -80,7 +97,7 @@ export default {
 .username{
 
 }
-.signout-button{
+button{
   background-color: rgba(0,0,0,0);
   border: none;
   margin: 0;
@@ -90,7 +107,7 @@ export default {
   cursor: pointer;
   transition: 0.2s;
 }
-.signout-button:hover{
+button:hover{
   color: rgba(130,200,255);
 }
 </style>
