@@ -25,11 +25,15 @@
 import {onMounted, ref} from "vue";
 import axios from 'axios'
 import {slideshowBackground} from "../assets/js/slideshowBackground";
-import router from "../router";
+import router, {signinLocalCheck} from "../router";
 
 export default {
 	name: "",
 	setup() {
+
+    if (signinLocalCheck()){
+      router.push('/home');
+    }
 
     let username = ref()
     let password = ref()
@@ -48,7 +52,12 @@ export default {
         if(res.status===200 && res.data.code===0){
           localStorage.setItem('token', res.data.data.token)
           localStorage.setItem('username', res.data.data.username)
-          router.push('/home')
+          let to = '/home'
+          let redirect = router.currentRoute.value.query.redirect
+          if (redirect){
+            to = redirect
+          }
+          router.push(to)
         }
       })
     }

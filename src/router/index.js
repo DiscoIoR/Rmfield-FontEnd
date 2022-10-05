@@ -10,10 +10,16 @@ const router = createRouter({
   routes: [
     {
       path: "/",
+      meta: {
+        auth: false
+      },
       component: IndexView,
     },
     {
       path: "/home",
+      meta: {
+        auth: true
+      },
       component: HomeView,
       children: [
         {
@@ -24,6 +30,9 @@ const router = createRouter({
     },
     {
       path: "/arknights",
+      meta: {
+        auth: true
+      },
       component: ArknightsView,
       children: [
         {
@@ -35,4 +44,20 @@ const router = createRouter({
   ],
 });
 
+router.beforeEach((to, from, next)=>{
+  if (to.meta.auth && !signinLocalCheck()){
+    next({
+      path: '/',
+      query: { redirect: to.fullPath },
+    })
+  }else {
+    next()
+  }
+})
+
 export default router;
+
+export function signinLocalCheck(){
+  return localStorage.getItem('token') !== null
+      && localStorage.getItem('username') !== null;
+}
