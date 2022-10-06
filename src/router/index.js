@@ -6,6 +6,7 @@ import ArknightsView from "../views/ArknightsView.vue";
 import General from "../components/arknights/General.vue";
 import Gacha from "../components/arknights/Gacha.vue";
 import Diamond from "../components/arknights/Diamond.vue";
+import Order from "../components/arknights/Order.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +49,10 @@ const router = createRouter({
         {
           path: 'diamond',
           component: Diamond
+        },
+        {
+          path: 'order',
+          component: Order
         }
       ]
     }
