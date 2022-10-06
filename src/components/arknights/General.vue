@@ -88,7 +88,6 @@ export default {
       }else {
         akToken = akTokenStr.value
       }
-      console.log(akToken)
       axios({
         url: '/user-api/ak',
         method: 'post',
@@ -100,7 +99,6 @@ export default {
           'token': akToken
         })
       }).then(res=>{
-        console.log(res.data)
         if (res.data.code===0){
           updateStatus.value = '数据已更新'
           setDiplayData()

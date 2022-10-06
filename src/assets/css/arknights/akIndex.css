@@ -22,10 +22,10 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    max-height: 75%;
+    max-height: 65%;
     padding-top: 0.7em;
     padding-bottom: 0.7em;
-    overflow-y: auto;
+    overflow-y: overlay;
     overflow-x: hidden;
 }
 .ak-navigation{
@@ -45,7 +45,6 @@
     background-color: rgba(255,255,255,0.6);
     backdrop-filter: blur(3px);
     color: rgba(0,0,0,0.9);
-    /*border-radius: 5px;*/
     text-decoration: none;
     transition: 0.2s;
 }

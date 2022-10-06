@@ -1,12 +1,6 @@
 export function ts2Date(ts){
     let date = new Date(ts)
-    let y = date.getFullYear().toString()
-    let M = (date.getMonth() + 1).toString()
-    let d = date.getDate().toString()
-    let H = date.getHours().toString()
-    let m = date.getMinutes().toString()
-    let s = date.getSeconds().toString()
-    return y + '/' + M + '/' + d + ' ' + H + ':' + m + ':' + s
+    return date.toLocaleString()
 }
 
 /*
