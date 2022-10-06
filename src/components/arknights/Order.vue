@@ -2,7 +2,7 @@
   <table>
     <thead>
     <tr>
-      <th>时间</th>
+      <th class="column1">时间</th>
       <th>项目</th>
       <th>平台</th>
       <th>金额</th>
@@ -11,7 +11,7 @@
     <tbody>
     <template v-for="(item) in orderList">
       <tr>
-        <td>{{ ts2Date(item.payTime * 1000) }}</td>
+        <td class="column1">{{ ts2Date(item.payTime * 1000) }}</td>
         <td>{{ item.productName }}</td>
         <td>{{ item.platform }}</td>
         <td>¥{{ (item.amount/100).toFixed(2) }}</td>
@@ -55,58 +55,9 @@ export default {
 </script>
 
 <style scoped>
-table {
-  height: 94%;
-  min-height: 25.6em;
-  width: 58.2em;
-  margin: 0.6em;
-  display: inline-block;
-  overflow: hidden;
-  text-align: center;
-}
+@import "@/assets/css/arknights/akHistoryTable.css";
 
-table thead, tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-
-td {
-  font-size: 0.95em;
-  height: 1.6em;
-}
-
-table thead {
-  background-color: rgba(255, 255, 255, 0.7);
-  height: 2em;
-  margin-bottom: 0.2em;
-}
-
-table tbody {
-  background-color: rgba(255, 255, 255, 0.55);
-  display: block;
-  height: calc(100% - 2em);
-  overflow-y: overlay;
-  overflow-x: hidden;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-th, td {
-  border: 1px solid black;
-}
-
-*::-webkit-scrollbar {
-  position: absolute;
-  right: 5px;
-  width: 5px;
-  height: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background-color: rgba(100, 100, 100, 0.8);
+.column1 {
+  font-size: 0.9em;
 }
 </style>

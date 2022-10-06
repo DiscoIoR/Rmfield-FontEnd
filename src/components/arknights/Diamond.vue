@@ -2,21 +2,21 @@
   <table>
     <thead>
     <tr>
-      <th>时间</th>
-      <th>项目</th>
-      <th>平台</th>
-      <th>变更</th>
-      <th>剩余</th>
+      <th class="column1">时间</th>
+      <th class="column2">项目</th>
+      <th class="column3">平台</th>
+      <th class="column4">变更</th>
+      <th class="column5">剩余</th>
     </tr>
     </thead>
     <tbody>
     <template v-for="(item) in diamondList">
       <tr>
-        <td>{{ ts2Date(item.ts * 1000) }}</td>
-        <td>{{ item.operation }}</td>
-        <td>{{ item.platform }}</td>
-        <td>{{ item.changeNum }}</td>
-        <td>{{ item.afterNum }}</td>
+        <td class="column1">{{ ts2Date(item.ts * 1000) }}</td>
+        <td class="column2">{{ item.operation }}</td>
+        <td class="column3">{{ item.platform }}</td>
+        <td class="column4">{{ item.changeNum }}</td>
+        <td class="column5">{{ item.afterNum }}</td>
       </tr>
     </template>
     </tbody>
@@ -56,58 +56,22 @@ export default {
 </script>
 
 <style scoped>
-table {
-  height: 94%;
-  min-height: 25.6em;
-  width: 58.2em;
-  margin: 0.6em;
-  display: inline-block;
-  overflow: hidden;
-  text-align: center;
-}
+@import "@/assets/css/arknights/akHistoryTable.css";
 
-table thead, tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+.column1 {
+  font-size: 0.9em;
+  width: 25%;
 }
-
-td {
-  font-size: 0.95em;
-  height: 1.6em;
+.column2 {
+  width: 28%;
 }
-
-table thead {
-  background-color: rgba(255, 255, 255, 0.7);
-  height: 2em;
-  margin-bottom: 0.2em;
+.column3{
+  width: 20%;
 }
-
-table tbody {
-  background-color: rgba(255, 255, 255, 0.55);
-  display: block;
-  height: calc(100% - 2em);
-  overflow-y: overlay;
-  overflow-x: hidden;
+.column4{
+  width: 12%;
 }
-
-table {
-  border-collapse: collapse;
-}
-
-th, td {
-  border: 1px solid black;
-}
-
-*::-webkit-scrollbar {
-  position: absolute;
-  right: 5px;
-  width: 5px;
-  height: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background-color: rgba(100, 100, 100, 0.8);
+.column5{
+  width: 15%;
 }
 </style>

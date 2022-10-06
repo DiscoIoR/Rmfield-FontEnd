@@ -70,50 +70,7 @@ export default {
 </script>
 
 <style scoped>
-
-table {
-  height: 94%;
-  min-height: 25.6em;
-  width: 58.2em;
-  margin: 0.6em;
-  display: inline-block;
-  overflow: hidden;
-  text-align: center;
-}
-
-table thead, tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-
-td {
-  font-size: 0.95em;
-  height: 1.6em;
-}
-
-table thead {
-  background-color: rgba(255, 255, 255, 0.7);
-  height: 2em;
-  margin-bottom: 0.2em;
-}
-
-table tbody {
-  background-color: rgba(255, 255, 255, 0.55);
-  display: block;
-  height: calc(100% - 2em);
-  overflow-y: overlay;
-  overflow-x: hidden;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-th, td {
-  border: 1px solid black;
-}
-
+@import "@/assets/css/arknights/akHistoryTable.css";
 
 .column1 {
   font-size: 0.9em;
@@ -161,18 +118,4 @@ th, td {
 .three_rarity {
   color: rgba(0, 0, 0, 1);
 }
-
-
-*::-webkit-scrollbar {
-  position: absolute;
-  right: 5px;
-  width: 5px;
-  height: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background-color: rgba(100, 100, 100, 0.8);
-}
-
 </style>
