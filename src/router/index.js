@@ -61,10 +61,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next)=>{
-  if (to.meta.auth && !signinLocalCheck()){
-    next({
-      path: '/',
-      query: { redirect: to.fullPath },
+  if (to.meta.auth){
+    signinLocalCheck().then(res=>{
+      if (!res){
+        next({
+          path: '/',
+          query: { redirect: to.fullPath },
+        })
+      }else {
+        next()
+      }
     })
   }else {
     next()
