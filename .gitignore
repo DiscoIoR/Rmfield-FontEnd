@@ -27,5 +27,4 @@ coverage
 *.sln
 *.sw?
 Dockerfile
-nginx.conf
-cert
+conf
