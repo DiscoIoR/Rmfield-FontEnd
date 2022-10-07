@@ -61,16 +61,10 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next)=>{
-  if (to.meta.auth){
-    signinLocalCheck().then(res=>{
-      if (!res){
-        next({
-          path: '/',
-          query: { redirect: to.fullPath },
-        })
-      }else {
-        next()
-      }
+  if (to.meta.auth && !signinLocalCheck()){
+    next({
+      path: '/',
+      query: { redirect: to.fullPath },
     })
   }else {
     next()
@@ -79,23 +73,7 @@ router.beforeEach((to, from, next)=>{
 
 export default router;
 
-export async function signinLocalCheck(){
-  let ret = false
-  let token = localStorage.getItem('token')
-  if(localStorage.getItem('token') !== null
-      && localStorage.getItem('username') !== null){
-    await axios({
-      url: '/user-api/user/auth/status',
-      method: 'get',
-      headers: {
-        'Content-Type': 'application/json',
-        'token': token
-      }
-    }).then(res=>{
-      if (res.data.code===0){
-        ret = true
-      }
-    })
-  }
-  return ret
+export function signinLocalCheck(){
+  return localStorage.getItem('token') !== null
+      && localStorage.getItem('username') !== null;
 }
