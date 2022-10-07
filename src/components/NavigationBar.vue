@@ -44,7 +44,7 @@ export default {
           'token': token
         })
       }).then(res=>{
-        if (res.data.code===0){
+        if (res.data.code===0 || res.data.code===1){
           localStorage.clear()
           router.push('/')
         }

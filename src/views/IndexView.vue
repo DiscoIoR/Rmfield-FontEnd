@@ -31,9 +31,11 @@ export default {
 	name: "",
 	setup() {
 
-    if (signinLocalCheck()){
-      router.push('/home');
-    }
+    signinLocalCheck().then(ret => {
+      if (ret){
+        router.push('/home')
+      }
+    })
 
     let username = ref()
     let password = ref()

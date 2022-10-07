@@ -7,6 +7,7 @@ import General from "../components/arknights/General.vue";
 import Gacha from "../components/arknights/Gacha.vue";
 import Diamond from "../components/arknights/Diamond.vue";
 import Order from "../components/arknights/Order.vue";
+import axios from "axios";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -72,7 +73,23 @@ router.beforeEach((to, from, next)=>{
 
 export default router;
 
-export function signinLocalCheck(){
-  return localStorage.getItem('token') !== null
-      && localStorage.getItem('username') !== null;
+export async function signinLocalCheck(){
+  let ret = false
+  let token = localStorage.getItem('token')
+  if(localStorage.getItem('token') !== null
+      && localStorage.getItem('username') !== null){
+    await axios({
+      url: '/user-api/user/auth/status',
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token
+      }
+    }).then(res=>{
+      if (res.data.code===0){
+        ret = true
+      }
+    })
+  }
+  return ret
 }
