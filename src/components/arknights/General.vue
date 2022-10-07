@@ -22,9 +22,9 @@
         <span id="update-status">{{ updateStatus }}</span></div>
     </div>
   </div>
-  <div id="gachaGeneral" class="info-block"></div>
-  <div id="gachaByPool" class="info-block"></div>
-  <div id="gachaByMonth" class="info-block"></div>
+  <div :id="gachaGeneralId" class="info-block"></div>
+  <div :id="gachaByPoolId" class="info-block"></div>
+  <div :id="gachaByMonthId" class="info-block"></div>
 </template>
 
 <script>
@@ -107,6 +107,10 @@ export default {
 
     }
 
+    let gachaGeneralId = ref('gachaGeneral');
+    let gachaByPoolId = ref('gachaByPool');
+    let gachaByMonthId = ref('gachaByMonth');
+
     let gachaGeneral;
     let gachaByPool;
     let gachaByMonth;
@@ -182,7 +186,10 @@ export default {
       lastUpdate,
       akTokenStr,
       updateAkData,
-      updateStatus
+      updateStatus,
+      gachaGeneralId,
+      gachaByPoolId,
+      gachaByMonthId
     }
   }
 }
